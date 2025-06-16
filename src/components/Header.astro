@@ -1,0 +1,104 @@
+---
+import { Send, Code, ShoppingBag, FolderOpenDot, Menu } from "@lucide/astro";
+---
+
+<nav
+    class="navbar max-w-5xl mx-auto bg-base-100/90 backdrop-blur-md border-b border-base-300/50 sticky top-0 z-50 transition-all duration-300"
+    id="navbar"
+>
+    <!-- Logo + Nombre de la empresa -->
+    <div class="navbar-start">
+        <a
+            href="/"
+            class="text-xl lg:text-2xl font-bold"
+        >
+            <span
+                class="ml-2 from-primary to-secondary bg-clip-text text-primary font-extrabold"
+            >
+                Agyl Code
+            </span>
+        </a>
+    </div>
+
+    <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 text-base font-medium space-x-2">
+            <li>
+                <a
+                    href="/servicios"
+                    class="nav-link px-4 py-3 rounded-lg hover:bg-base-200/100 hover:text-primary"
+                >
+                    <Code class="w-6 h-6" />
+                    Servicios
+                </a>
+            </li>
+            <li>
+                <a
+                    href="/portafolio"
+                    class="nav-link px-4 py-3 rounded-lg hover:bg-base-200/100 hover:text-primary"
+                >
+                    <ShoppingBag  class="w-6 h-6" />
+                    Tienda
+                </a>
+            </li>
+            <li>
+                <a
+                    href="/contacto"
+                    class="nav-link px-4 py-3 rounded-lg hover:bg-base-200/100 hover:text-primary"
+                >
+                    <Send class="w-6 h-6" />
+                    Contacto
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Controles del lado derecho -->
+    <div class="navbar-end space-x-2">
+        <!-- Botón CTA (Call to Action) -->
+        <a
+            href="/contacto"
+            class="btn btn-primary btn-md hidden lg:inline-flex"
+        >
+            <Send class="w-5 h-5 mr-1" />
+            Cotizar
+        </a>
+
+        <!-- Menú hamburguesa para móvil -->
+        <div class="dropdown dropdown-end lg:hidden">
+            <div tabindex="0" role="button" class="btn btn-dash btn-primary btn-sm">
+                <Menu class="w-5 h-5" />
+            </div>
+            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1000] w-72 p-4 shadow-lg border border-base-300">
+                <div class="flex">
+                    <span class="text-primary text-xl font-extrabold py-2">Agyl Code S.A.C</span>
+                </div>
+                <div class="divider my-1"></div>
+                <li>
+                    <a href="/servicios" class="hover:bg-base-300 rounded-lg px-3 py-3 text-base hover:text-primary">
+                        <Code class="w-6 h-6" />
+                        Servicios
+                    </a>
+                </li>
+                <li>
+                    <a href="/portafolio" class="hover:bg-base-300 rounded-lg px-3 py-3 text-base hover:text-primary">
+                        <ShoppingBag class="w-6 h-6" />
+                        Tienda
+                    </a>
+                </li>
+                <li>
+                    <a href="/contacto" class="hover:bg-base-300 rounded-lg px-3 py-3 text-base hover:text-primary">
+                        <Send class="w-6 h-6" />
+                        Contacto
+                    </a>
+                </li>
+                <div class="divider my-2"></div>
+                <li>
+                    <a href="/contacto" class="btn btn-primary btn-md btn-outline w-full">
+                        <Send class="w-6 h-6 mr-2" />
+                        Solicitar Cotización
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
