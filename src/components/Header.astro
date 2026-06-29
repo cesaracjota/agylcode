@@ -1,104 +1,96 @@
 ---
-import { Send, Code, ShoppingBag, FolderOpenDot, Menu } from "@lucide/astro";
+import Send from "@lucide/astro/icons/send";
+import ShoppingBag from "@lucide/astro/icons/shopping-bag";
+import FolderOpenDot from "@lucide/astro/icons/folder-open-dot";
+import Menu from "@lucide/astro/icons/menu";
+import X from "@lucide/astro/icons/x";
+
+const pathname = Astro.url.pathname;
 ---
 
-<nav
-    class="navbar max-w-5xl mx-auto bg-base-100/90 backdrop-blur-md border-b border-base-300/50 sticky top-0 z-50 transition-all duration-300"
-    id="navbar"
->
-    <!-- Logo + Nombre de la empresa -->
-    <div class="navbar-start">
-        <a
-            href="/"
-            class="text-xl lg:text-2xl font-bold"
-        >
-            <span
-                class="ml-2 from-primary to-secondary bg-clip-text text-primary font-extrabold"
-            >
-                Agyl Code
-            </span>
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <!-- Logo -->
+    <a href="/" class="navbar-logo" style="color: var(--text-primary);">
+      <span style="color: var(--accent);">&lt;</span>AGYLCODE<span style="color: var(--accent);">/&gt;</span>
+    </a>
+
+    <!-- Right Side -->
+    <div class="navbar-right">
+      <!-- Desktop Links -->
+      <div class="navbar-links">
+        <a href="/servicios" class:list={['navbar-link', { active: pathname === '/servicios' || pathname === '/servicios/' }]}>Servicios</a>
+        <a href="/proyectos" class:list={['navbar-link', { active: pathname === '/proyectos' || pathname === '/proyectos/' }]}>Proyectos</a>
+        <a href="https://wa.me/51904137442" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.75rem; margin-left: 1rem;">
+          WHATSAPP
         </a>
-    </div>
+      </div>
 
-    <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1 text-base font-medium space-x-2">
-            <li>
-                <a
-                    href="/servicios"
-                    class="nav-link px-4 py-3 rounded-lg hover:bg-base-200/100 hover:text-primary"
-                >
-                    <Code class="w-6 h-6" />
-                    Servicios
-                </a>
-            </li>
-            <li>
-                <a
-                    href="/portafolio"
-                    class="nav-link px-4 py-3 rounded-lg hover:bg-base-200/100 hover:text-primary"
-                >
-                    <ShoppingBag  class="w-6 h-6" />
-                    Tienda
-                </a>
-            </li>
-            <li>
-                <a
-                    href="/contacto"
-                    class="nav-link px-4 py-3 rounded-lg hover:bg-base-200/100 hover:text-primary"
-                >
-                    <Send class="w-6 h-6" />
-                    Contacto
-                </a>
-            </li>
-        </ul>
+      <!-- Mobile Toggle -->
+      <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle menu">
+        <Menu size={20} id="menu-icon-open" />
+        <X size={20} id="menu-icon-close" style="display:none;" />
+      </button>
     </div>
-
-    <!-- Controles del lado derecho -->
-    <div class="navbar-end space-x-2">
-        <!-- Botón CTA (Call to Action) -->
-        <a
-            href="/contacto"
-            class="btn btn-primary btn-md hidden lg:inline-flex"
-        >
-            <Send class="w-5 h-5 mr-1" />
-            Cotizar
-        </a>
-
-        <!-- Menú hamburguesa para móvil -->
-        <div class="dropdown dropdown-end lg:hidden">
-            <div tabindex="0" role="button" class="btn btn-dash btn-primary btn-sm">
-                <Menu class="w-5 h-5" />
-            </div>
-            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1000] w-72 p-4 shadow-lg border border-base-300">
-                <div class="flex">
-                    <span class="text-primary text-xl font-extrabold py-2">Agyl Code S.A.C</span>
-                </div>
-                <div class="divider my-1"></div>
-                <li>
-                    <a href="/servicios" class="hover:bg-base-300 rounded-lg px-3 py-3 text-base hover:text-primary">
-                        <Code class="w-6 h-6" />
-                        Servicios
-                    </a>
-                </li>
-                <li>
-                    <a href="/portafolio" class="hover:bg-base-300 rounded-lg px-3 py-3 text-base hover:text-primary">
-                        <ShoppingBag class="w-6 h-6" />
-                        Tienda
-                    </a>
-                </li>
-                <li>
-                    <a href="/contacto" class="hover:bg-base-300 rounded-lg px-3 py-3 text-base hover:text-primary">
-                        <Send class="w-6 h-6" />
-                        Contacto
-                    </a>
-                </li>
-                <div class="divider my-2"></div>
-                <li>
-                    <a href="/contacto" class="btn btn-primary btn-md btn-outline w-full">
-                        <Send class="w-6 h-6 mr-2" />
-                        Solicitar Cotización
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+  </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/servicios" class:list={['mobile-menu-link', { active: pathname === '/servicios' || pathname === '/servicios/' }]}>
+    <FolderOpenDot size={20} />
+    Servicios
+  </a>
+  <a href="/proyectos" class:list={['mobile-menu-link', { active: pathname === '/proyectos' || pathname === '/proyectos/' }]}>
+    <ShoppingBag size={20} />
+    Proyectos
+  </a>
+  <div style="margin-top: 1.5rem; padding-inline: 0.25rem;">
+    <div style="height: 1px; background: var(--border); margin-bottom: 1.5rem;"></div>
+    <a href="https://wa.me/51904137442" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center;">
+      <Send size={16} />
+      Escribir al WhatsApp
+    </a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    toggle?.addEventListener('click', () => {
+      const isActive = menu?.classList.toggle('active');
+      if (iconOpen && iconClose) {
+        iconOpen.style.display = isActive ? 'none' : 'block';
+        iconClose.style.display = isActive ? 'block' : 'none';
+      }
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menu?.classList.remove('active');
+        if (iconOpen && iconClose) {
+          iconOpen.style.display = 'block';
+          iconClose.style.display = 'none';
+        }
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      const currentScroll = window.scrollY;
+      if (navbar) {
+        if (currentScroll > 50) {
+          navbar.style.borderBottomColor = 'var(--border-hover)';
+        } else {
+          navbar.style.borderBottomColor = 'var(--border)';
+        }
+      }
+    });
+  });
+</script>

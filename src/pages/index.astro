@@ -1,77 +1,139 @@
 ---
 import "../assets/app.css";
 import BaseLayout from "../layout/BaseLayout.astro";
-import dashboardImage from "../assets/images/dashboard.webp";
+import ArrowRight from "@lucide/astro/icons/arrow-right";
+import Code from "@lucide/astro/icons/code";
+import Server from "@lucide/astro/icons/server";
+import Smartphone from "@lucide/astro/icons/smartphone";
+import ExternalLink from "@lucide/astro/icons/external-link";
+import Activity from "@lucide/astro/icons/activity";
+import Shield from "@lucide/astro/icons/shield";
 ---
 
 <BaseLayout>
-	<div class="flex flex-col gap-6">
-		<div class="flex flex-col gap-6 lg:flex-row">
-			<div class="w-full h-full rounded-xl overflow-hidden">
-				<img
-					src={dashboardImage.src}
-					alt="hero"
-					class="w-full h-full object-cover"
-				/>
-			</div>
-			<div class="hero flex flex-col gap-2">
-				<div class="hero-content">
-					<div class="w-full">
-						<h1 class="text-3xl lg:text-4xl font-bold text-center lg:text-left">
-							Bienvenido a Agyl Code
-						</h1>
-						<div class="divider my-1"></div>
-						<p class="py-6 text-base-content text-lg lg:text-2xl text-center lg:text-left">
-							Agyl Code es una empresa de desarrollo de software
-							que se dedica a crear soluciones personalizadas para
-							empresas y organizaciones de todo tipo.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="flex flex-col gap-6 lg:flex-row">
-			<div
-				class="mockup-code bg-neutral max-w-md mx-auto w-full rounded-xl"
-			>
-				<pre data-prefix="$"><code>pnpm i agylcode</code></pre>
-				<pre
-					data-prefix=">"
-					class="text-warning"><code>bienvenido a agylcode...</code></pre>
-				<pre
-					data-prefix=">"
-					class="text-success"><code>instalando...</code></pre>
-				<pre
-					data-prefix=">"
-					class="text-info"><code>cargando...</code></pre>
-			</div>
-		</div>
-		<div class="flex flex-col gap-6 lg:flex-row">
-			<div class="hero flex flex-col gap-2">
-				<div class="hero-content">
-					<div class="w-full">
-						<h1 class="text-3xl lg:text-4xl font-bold text-center lg:text-left">
-							Transformá tu negocio con nuestros servicios y
-							productos
-						</h1>
-						<p class="py-6 text-base-content text-lg lg:text-xl text-justify lg:text-left">
-							Ofrecemos una amplia gama de servicios y productos para
-							satisfacer las necesidades de nuestros clientes.
-							<ul class="list-disc list-inside">
-								<li>
-									Desarrollo de software
-								</li>
-								<li>
-									Consultoría en tecnología
-								</li>
-								<li>
-									Asesoría en marketing digital
-								</li>
-							</ul>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <!-- ════════════════════════════════════════
+       HERO SECTION (MINIMALIST)
+       ════════════════════════════════════════ -->
+  <section class="section" style="padding-top: 6rem; padding-bottom: 4rem;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="animate-on-scroll">
+        <div class="section-label" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 2rem;">
+          <span class="status-dot status-dot-success" style="width: 6px; height: 6px;"></span>
+          AGYL_CODE_ ENGINE ONLINE
+        </div>
+
+        <h1 style="margin-bottom: 1.5rem; color: #fff;">
+          Plataforma de software para <br/>
+          <span style="color: var(--text-secondary);">empresas modernas.</span>
+        </h1>
+
+        <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem auto; color: var(--text-muted);">
+          Desarrollamos arquitectura limpia, pipelines automatizados y soluciones 
+          escalables. Sin deuda técnica, sin herramientas genéricas. Código que 
+          respira y escala con tu operación.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 4rem;">
+          <a href="/servicios" class="btn btn-primary">
+            Explorar Servicios
+          </a>
+          <a href="/proyectos" class="btn btn-outline">
+            Ver Proyectos <ArrowRight size={14} style="margin-left: 0.25rem;" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       PLATFORM MODULES (CLEAN GRID)
+       ════════════════════════════════════════ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        
+        <!-- Module 1 -->
+        <a href="/servicios" class="card" style="display: block; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+            <Code size={20} strokeWidth={1.5} style="color: var(--text-primary);" />
+            <span class="badge" style="border-color: var(--text-dim); color: var(--text-muted);">CORE</span>
+          </div>
+          <h3 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">Desarrollo Web & SaaS</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+            Arquitectura cloud-native con React, Node.js y bases de datos escalables.
+          </p>
+        </a>
+
+        <!-- Module 2 -->
+        <a href="/servicios" class="card" style="display: block; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+            <Server size={20} strokeWidth={1.5} style="color: var(--text-primary);" />
+            <span class="badge" style="border-color: var(--text-dim); color: var(--text-muted);">ENTERPRISE</span>
+          </div>
+          <h3 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">Sistemas a Medida</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+            ERPs y CRMs interconectados vía APIs robustas y protocolos modernos.
+          </p>
+        </a>
+
+        <!-- Module 3 -->
+        <a href="/servicios" class="card" style="display: block; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+            <Activity size={20} strokeWidth={1.5} style="color: var(--text-primary);" />
+            <span class="badge" style="border-color: var(--text-dim); color: var(--text-muted);">OPS</span>
+          </div>
+          <h3 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">DevOps & Optimización</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+            CI/CD, escalamiento dinámico y monitoreo continuo 24/7.
+          </p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       TERMINAL / LOG SECTION (CLAUDE CODE STYLE)
+       ════════════════════════════════════════ -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="card" style="background: rgba(5,5,5,0.5); border-color: var(--border); padding: 0;">
+        <div style="padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; gap: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted);">
+          <span style="color: var(--text-secondary);">agylcode-engine</span>
+          <span>v2.0.0</span>
+          <span style="margin-left: auto; display: flex; align-items: center; gap: 0.5rem;">
+            <span class="status-dot status-dot-success" style="width: 6px; height: 6px;"></span>
+            SYSTEMS OPTIMAL
+          </span>
+        </div>
+        <div style="padding: 2rem 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; line-height: 1.8;">
+          <div style="display: flex; gap: 1rem; margin-bottom: 0.5rem;">
+            <span style="color: var(--text-dim);">[09:41:02]</span>
+            <span style="color: var(--success);">INFO</span>
+            <span style="color: var(--text-secondary);">Initializing project architecture...</span>
+          </div>
+          <div style="display: flex; gap: 1rem; margin-bottom: 0.5rem;">
+            <span style="color: var(--text-dim);">[09:41:03]</span>
+            <span style="color: var(--info);">SYNC</span>
+            <span style="color: var(--text-secondary);">Connecting to enterprise databases</span>
+          </div>
+          <div style="display: flex; gap: 1rem; margin-bottom: 0.5rem;">
+            <span style="color: var(--text-dim);">[09:41:04]</span>
+            <span style="color: var(--warning);">WARN</span>
+            <span style="color: var(--text-secondary);">Optimizing latency across 4 regions</span>
+          </div>
+          <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+            <span style="color: var(--text-dim);">[09:41:05]</span>
+            <span style="color: var(--success);">DONE</span>
+            <span style="color: #fff;">Deployment successful in 12ms.</span>
+          </div>
+          <div style="display: flex; gap: 1rem;">
+            <span style="color: var(--accent);">❯</span>
+            <span style="color: var(--text-secondary);"><span class="cursor-blink">_</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

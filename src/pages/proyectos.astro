@@ -1,0 +1,119 @@
+---
+import "../assets/app.css";
+import BaseLayout from "../layout/BaseLayout.astro";
+import FolderGit2 from "@lucide/astro/icons/folder-git-2";
+import ExternalLink from "@lucide/astro/icons/external-link";
+import Github from "@lucide/astro/icons/github";
+import Database from "@lucide/astro/icons/database";
+import LayoutTemplate from "@lucide/astro/icons/layout-template";
+
+// Datos de ejemplo para proyectos
+const projects = [
+  {
+    name: "Fintech Dashboard Core",
+    description: "Plataforma de visualización de datos financieros en tiempo real. Maneja más de 10,000 transacciones por segundo con una latencia inferior a 50ms.",
+    status: "PRODUCCIÓN",
+    statusColor: "var(--success)",
+    tech: ["React", "TypeScript", "WebSocket", "Node.js"],
+    icon: LayoutTemplate,
+    link: "#"
+  },
+  {
+    name: "Sistema de Gestión Logística",
+    description: "ERP modular para empresas de transporte. Incluye seguimiento GPS, asignación automática de rutas y facturación electrónica integrada.",
+    status: "EN DESARROLLO",
+    statusColor: "var(--warning)",
+    tech: ["Next.js", "PostgreSQL", "Prisma", "AWS"],
+    icon: Database,
+    link: "#"
+  },
+  {
+    name: "API Gateway Microservicios",
+    description: "Capa de orquestación y enrutamiento central para ecosistema de 15 microservicios. Implementa rate limiting, autenticación JWT y caché.",
+    status: "PRODUCCIÓN",
+    statusColor: "var(--success)",
+    tech: ["Go", "Redis", "Docker", "Kubernetes"],
+    icon: FolderGit2,
+    link: "#"
+  }
+];
+---
+
+<BaseLayout>
+  <!-- Header Minimalista de Proyectos -->
+  <section class="section" style="padding-top: 6rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label">
+          <FolderGit2 size={14} style="display: inline; margin-right: 0.25rem;" />
+          /WORKSPACE/PROYECTOS
+        </div>
+        <h1 style="color: #fff; margin-bottom: 1rem;">
+          Proyectos <span style="color: var(--text-muted);">Destacados.</span>
+        </h1>
+        <p style="max-width: 600px; color: var(--text-muted);">
+          Casos de estudio, arquitecturas complejas y plataformas desplegadas.
+          Construimos software que resuelve problemas reales a escala empresarial.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista de Proyectos (Minimalista) -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        {projects.map((project, index) => (
+          <div class={`card animate-on-scroll delay-${index + 1}`} style="display: flex; flex-direction: column; md:flex-row; gap: 2rem;">
+            
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <h3 style="color: #fff; display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem;">
+                  <project.icon size={18} style="color: var(--text-muted);" />
+                  {project.name}
+                </h3>
+                <span class="badge" style={`color: ${project.statusColor}; border-color: ${project.statusColor}33;`}>
+                  {project.status}
+                </span>
+              </div>
+              
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 800px;">
+                {project.description}
+              </p>
+              
+              <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.25rem;">
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  {project.tech.map(tech => (
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); background: var(--bg-tertiary); padding: 0.2rem 0.5rem; border-radius: 4px;">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                
+                <div style="display: flex; gap: 1rem;">
+                  <a href={project.link} style="color: var(--text-muted); transition: color 0.2s;" aria-label="Ver código fuente">
+                    <Github size={18} />
+                  </a>
+                  <a href={project.link} style="color: var(--text-muted); transition: color 0.2s;" aria-label="Visitar proyecto">
+                    <ExternalLink size={18} />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+      <!-- Footer Action -->
+      <div class="animate-on-scroll delay-4" style="margin-top: 4rem; text-align: center; padding-top: 3rem; border-top: 1px solid var(--border);">
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+          ¿Tienes un desafío técnico similar?
+        </p>
+        <a href="https://wa.me/51904137442" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Escribir al WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

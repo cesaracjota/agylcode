@@ -1,19 +1,138 @@
 ---
 import BaseLayout from "../layout/BaseLayout.astro";
+import Globe from "@lucide/astro/icons/globe";
+import Server from "@lucide/astro/icons/server";
+import Smartphone from "@lucide/astro/icons/smartphone";
+import Shield from "@lucide/astro/icons/shield";
+import Cloud from "@lucide/astro/icons/cloud";
+import Wrench from "@lucide/astro/icons/wrench";
 ---
 
 <BaseLayout>
-	<div class="hero bg-base-200">
-		<div class="hero-content text-center">
-			<div class="max-w-md">
-				<h1 class="text-5xl font-bold">Servicios</h1>
-				<p class="py-6">
-					Provident cupiditate voluptatem et in. Quaerat fugiat ut
-					assumenda excepturi exercitationem quasi. In deleniti eaque
-					aut repudiandae et a id nisi.
-				</p>
-				<button class="btn btn-primary">Get Started</button>
-			</div>
-		</div>
-	</div>
+  <!-- ════════════════════════════════════════
+       SERVICES HERO (MINIMALIST)
+       ════════════════════════════════════════ -->
+  <section class="section" style="padding-top: 6rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="animate-on-scroll" style="max-width: 700px;">
+        <div class="section-label">// MODULE_REGISTRY</div>
+        <h1 style="margin-bottom: 1rem; color: #fff;">
+          Servicios <span style="color: var(--text-muted);">Disponibles.</span>
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 2rem;">
+          Arquitectura, desarrollo y despliegue. Proveemos soluciones end-to-end 
+          para digitalizar operaciones complejas y escalar sin fricción.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SERVICES GRID (MINIMALIST)
+       ════════════════════════════════════════ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        
+        <!-- Service 1 -->
+        <div class="card animate-on-scroll delay-1">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <Globe size={20} strokeWidth={1.5} style="color: var(--text-primary);" />
+            <span class="badge">ACTIVE</span>
+          </div>
+          <h3 style="font-size: 1.05rem; color: #fff; margin-bottom: 0.5rem;">Desarrollo Web & Plataformas</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Aplicaciones web modernas, SaaS y paneles administrativos optimizados para alto rendimiento.
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">REACT</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">NEXT.JS</span>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="card animate-on-scroll delay-2">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <Server size={20} strokeWidth={1.5} style="color: var(--text-primary);" />
+            <span class="badge" style="border-color: var(--border-accent); color: var(--accent);">CORE</span>
+          </div>
+          <h3 style="font-size: 1.05rem; color: #fff; margin-bottom: 0.5rem;">Sistemas Empresariales</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            ERPs, CRMs y gestión de inventarios conectados con facturación electrónica.
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">NODE.JS</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">POSTGRESQL</span>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="card animate-on-scroll delay-3">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <Smartphone size={20} strokeWidth={1.5} style="color: var(--text-primary);" />
+            <span class="badge">CROSS-PLATFORM</span>
+          </div>
+          <h3 style="font-size: 1.05rem; color: #fff; margin-bottom: 0.5rem;">Desarrollo Móvil</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Aplicaciones iOS y Android nativas o híbridas con foco en la retención y UX.
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">REACT NATIVE</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">FLUTTER</span>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="card animate-on-scroll delay-1">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <Cloud size={20} strokeWidth={1.5} style="color: var(--text-primary);" />
+            <span class="badge">INFRA</span>
+          </div>
+          <h3 style="font-size: 1.05rem; color: #fff; margin-bottom: 0.5rem;">Cloud & DevOps</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Arquitectura cloud-native, orquestación de contenedores y pipelines de CI/CD.
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">AWS</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">DOCKER</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">K8S</span>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="card animate-on-scroll delay-2">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <Shield size={20} strokeWidth={1.5} style="color: var(--text-primary);" />
+            <span class="badge">ADVISORY</span>
+          </div>
+          <h3 style="font-size: 1.05rem; color: #fff; margin-bottom: 0.5rem;">Consultoría Técnica</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Auditorías de código, optimización de latencia y rediseño de arquitecturas legacy.
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">CODE REVIEW</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">REFACTORING</span>
+          </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="card animate-on-scroll delay-3">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <Wrench size={20} strokeWidth={1.5} style="color: var(--text-primary);" />
+            <span class="badge">MAINTENANCE</span>
+          </div>
+          <h3 style="font-size: 1.05rem; color: #fff; margin-bottom: 0.5rem;">Soporte & Mantenimiento</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Garantía de uptime, resolución de incidencias en {'<'} 2h y actualizaciones de seguridad.
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">SLA 99.9%</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">24/7</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
